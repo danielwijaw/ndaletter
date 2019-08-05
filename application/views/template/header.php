@@ -28,18 +28,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="javascript:void(0)">Link <span class="sr-only">(current)</span></a></li>
-            <li><a href="javascript:void(0)">Link</a></li>
-            <li class="dropdown">
-              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="javascript:void(0)">Action</a></li>
-                <li><a href="javascript:void(0)">Another action</a></li>
-                <li><a href="javascript:void(0)">Something else here</a></li>
-                <li><a href="javascript:void(0)">Separated link</a></li>
-                <li><a href="javascript:void(0)">One more separated link</a></li>
-              </ul>
-            </li>
+            <li class="menunya"><a id="create-template" href="<?php echo base_url("front/create") ?>?" onclick="hyperlinkajax(event, this.id)">Buat Template Surat <span class="sr-only">(current)</span></a></li>
+            <li class="menunya "><a id="send-letter" href="<?php echo base_url("front/send") ?>?" onclick="hyperlinkajax(event, this.id)">Kirim Surat <span class="sr-only">(current)</span></a></li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -47,39 +37,7 @@
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
             <!-- Messages: style can be found in dropdown.less-->
-            <li class="dropdown messages-menu">
-              <!-- Menu toggle button -->
-              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
-                <i class="fa fa-envelope-o"></i>
-                <span class="label label-success">1</span>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="header">Surat Baru</li>
-                <li>
-                  <!-- inner menu: contains the messages -->
-                  <ul class="menu">
-                    <li><!-- start message -->
-                      <a href="javascript:void(0)">
-                        <div class="pull-left">
-                          <!-- User Image -->
-                          <img src="<?php echo base_url('assets/') ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                        </div>
-                        <!-- Message title and timestamp -->
-                        <h4>
-                          Support Team
-                          <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                        </h4>
-                        <!-- The message -->
-                        <p>Why not buy a new awesome theme?</p>
-                      </a>
-                    </li>
-                    <!-- end message -->
-                  </ul>
-                  <!-- /.menu -->
-                </li>
-                <li class="footer"><a href="javascript:void(0)">See All Messages</a></li>
-              </ul>
-            </li>
+            <li class="dropdown messages-menu" id="suratdepan"> </li>
             <!-- /.messages-menu -->
 
             
@@ -120,34 +78,6 @@
   <div class="content-wrapper">
     <div class="container">
       <section class="content">
-        <div class="box box-default">
-          <div class="box-header with-border">
-            <h3 class="box-title">Blank Box</h3>
-          </div>
-          <div class="box-body">
-            The great content goes here
-          </div>
-        </div>
-      </section>
-    </div>
-  </div>
-  <footer class="main-footer">
-    <div class="container">
-      <div class="pull-right hidden-xs">
-        <b>Version</b> 2.4.13
-      </div>
-      <strong>Copyright &copy; Template <a href="https://adminlte.io">AdminLTE</a>.</strong> All rights
-      reserved.
-    </div>
-    <!-- /.container -->
-  </footer>
-</div>
-<!-- ./wrapper -->
-
-<script src="<?php echo base_url('assets/') ?>/bower_components/jquery/dist/jquery.min.js"></script>
-<script src="<?php echo base_url('assets/') ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url('assets/') ?>/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="<?php echo base_url('assets/') ?>/bower_components/fastclick/lib/fastclick.js"></script>
-<script src="<?php echo base_url('assets/') ?>/dist/js/adminlte.min.js"></script>
-</body>
-</html>
+        <!-- CONTENT -->
+        <div id="dataajax">
+  
