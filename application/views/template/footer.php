@@ -54,7 +54,7 @@
     }
 
     function hyperlinkajaxz(url) {
-        $(".menunya").attr('class', 'menunya');
+        $(".menunya active").attr('class', 'menunya');
         $.ajax({
             url: url+"?&ajax='true'",
             contentType: false,
@@ -67,14 +67,12 @@
                 $('#dataajax').html(error);
             }
         });
-        window.history.pushState({href: url}, '', url);
     }
 
     $(document).ready(function() {
-        window.addEventListener('popstate', function(e){
-            if(e.state)
-                hyperlinkajaxz(e.state.href);
-        }); 
+        $(window).on('popstate', function() {
+          hyperlinkajaxz(window.location.href)
+        });
     });
 </script>
 </body>

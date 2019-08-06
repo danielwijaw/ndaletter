@@ -2,13 +2,28 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Front extends CI_Controller {
+
+	public function __construct()
+    {
+            parent::__construct();
+            if(null == $this->session->userdata('nip')){
+            	redirect('/login/index/');
+            	die();
+            }
+    }
+
 	private function doViews($GET) 
 	{
+		if(!isset($GET['data'])){
+			$GET['data'] = array('data' => '');
+		}else{
+			$GET['data'] = $GET['data'];
+		}
 		if(!isset($GET['ajax'])){
 			$this->load->view('template/header');
 		}
 		if(isset($GET['asdx'])){
-			$this->load->view($GET['asdx']);
+			$this->load->view($GET['asdx'], $GET['data']);
 		}
 		if(!isset($GET['ajax'])){
 			$this->load->view('template/footer');

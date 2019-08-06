@@ -13,4 +13,10 @@ class dataletter extends CI_Model {
     	$this->db->update('tb_history');
     }
 
+    public function getlogin($login)
+    {
+        $data = $this->db->get_where('tm_user', array('nip' => $login['nip'], 'password' => $login['password']));
+        return $data->result_array();
+    }
+
 }
