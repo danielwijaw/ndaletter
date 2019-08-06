@@ -21,9 +21,9 @@ class Front extends CI_Controller {
 		$this->doViews($_GET);
 	}
 
-	public function create()
+	public function come()
 	{
-		$_GET['asdx'] = 'front/create';
+		$_GET['asdx'] = 'front/come';
 		$this->doViews($_GET);
 	}
 
@@ -39,5 +39,12 @@ class Front extends CI_Controller {
 		$data = $this->dataletter->getletter_notif();
 		$data = array('data' => $data);
 		$this->load->view('/front/suratnotif', $data);
+	}
+
+	public function skipnotif()
+	{
+		$this->load->model('dataletter');
+		$data = $this->dataletter->skipnotif();
+		echo "NOTIFIKASI CLEAR";
 	}
 }

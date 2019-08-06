@@ -28,8 +28,8 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="menunya"><a id="create-template" href="<?php echo base_url("front/create") ?>?" onclick="hyperlinkajax(event, this.id)">Buat Template Surat <span class="sr-only">(current)</span></a></li>
-            <li class="menunya "><a id="send-letter" href="<?php echo base_url("front/send") ?>?" onclick="hyperlinkajax(event, this.id)">Kirim Surat <span class="sr-only">(current)</span></a></li>
+            <li class="menunya"><a id="come-template" href="<?php echo base_url("front/come") ?>?" onclick="hyperlinkajax(event, this.id)">Surat Masuk <span class="sr-only">(current)</span></a></li>
+            <li class="menunya "><a id="send-letter" href="<?php echo base_url("front/send") ?>?" onclick="hyperlinkajax(event, this.id)">Surat Keluar<span class="sr-only">(current)</span></a></li>
           </ul>
         </div>
         <!-- /.navbar-collapse -->

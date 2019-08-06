@@ -1,6 +1,6 @@
 
               <!-- Menu toggle button -->
-              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+              <a onclick="notifikasi()" href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-envelope-o"></i>
                 <span class="label label-success"><?php echo count($data) ?>+</span>
               </a>
@@ -18,7 +18,7 @@
                         </div>
                         <!-- Message title and timestamp -->
                         <h4>
-                          <?php echo $val['from'] ?>
+                          Dari <?php echo $val['dari'] ?> Melalui<?php echo $val['melalui'] ?>
                           <?php 
                             $sekarang = time();
                             $validasi = strtotime($val['created_at']);
@@ -38,8 +38,17 @@
                   <!-- /.menu -->
                 </li>
                 <?php if(count($data) > 0 ){ ?>
-                <li class="footer"><a data-toggle="modal" data-target="#modalpesan" href="javascript:void(0)">See All Messages</a></li>
+                <li class="footer"><a id="come-template" href="<?php echo base_url("front/come") ?>?" onclick="hyperlinkajax(event, this.id)">See All Messages</a></li>
                 <?php }else{ ?>
                 <li class="footer"><a style="cursor: context-menu" href="javascript:void(0)">Tidak Ada Surat Masuk</a></li>
                 <?php } ?>
               </ul>
+
+<script type="text/javascript">
+  function notifikasi()
+  {
+    $.get("<?php echo base_url("front/skipnotif") ?>", function(data){
+      console.log(data);
+    });
+  }
+</script>

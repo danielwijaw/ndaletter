@@ -1,23 +1,23 @@
 <div class="box box-default">
     <div class="box-header with-border">
-        <h3 class="box-title">Surat Keluar</h3>
+        <h3 class="box-title">Surat Masuk</h3>
     </div>
     <div class="box-body">
-        <button data-toggle="modal" data-target="#modalsuratkeluar" type="button" class="btn btn-primary btn-sm">Data Surat Keluar</button>
+        <button data-toggle="modal" data-target="#modalsuratmasuk" type="button" class="btn btn-primary btn-sm">Data Surat Masuk</button>
         <div class="table-responsive" id="surat_masuk">
         	
         </div>
     </div>
 </div>
 
-<div id="modalsuratkeluar" class="modal fade" role="dialog">
+<div id="modalsuratmasuk" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Surat Keluar</h4>
+        <h4 class="modal-title">Surat Masuk</h4>
       </div>
       <div class="modal-body">
         <label>Nomor Surat</label>
