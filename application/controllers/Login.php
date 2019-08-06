@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
+
 	private function doViews($GET) 
 	{
 		if(!isset($GET['data'])){
@@ -23,6 +24,10 @@ class Login extends CI_Controller {
 	
 	public function index()
 	{
+		if(null != $this->session->userdata('nip')){
+        	redirect('/');
+        	die();
+        }
 		if(null != $_POST){
 			$this->load->model('dataletter');
 			$post = array(
