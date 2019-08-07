@@ -36,6 +36,24 @@ class Front extends CI_Controller {
 		$this->doViews($_GET);
 	}
 
+	public function comeform()
+	{
+		$this->load->model('dataletter');
+		$data = $this->dataletter->getuser();
+		$data = array('data' => $data);
+		$_GET['data'] = $data;
+		$this->load->view('/front/comeform', $data);
+	}
+
+	public function sendform()
+	{
+		$this->load->model('dataletter');
+		$data = $this->dataletter->getuser();
+		$data = array('data' => $data);
+		$_GET['data'] = $data;
+		$this->load->view('/front/sendform', $data);
+	}
+
 	public function come()
 	{
 		$_GET['asdx'] = 'front/come';

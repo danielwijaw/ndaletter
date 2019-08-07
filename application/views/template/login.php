@@ -11,7 +11,7 @@
 		        <label>NIP</label>
 		        <input type="text" name="nip" class="form-control" required="required"><br/>
 		        <label>Password</label>
-		        <input type="text" name="password" class="form-control" required="required"><br/>
+		        <input type="password" name="password" class="form-control" required="required"><br/>
 	    		<p style="text-align:center"><?php echo $data ?></p>
 		        <button class="btn btn-primary btn-md">Login</button>
 	        </form>

@@ -3,6 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Login extends CI_Controller {
 
+	function __construct(){
+        parent::__construct();
+        $this->load->helper('dnl');
+    }
 
 	private function doViews($GET) 
 	{
@@ -31,8 +35,8 @@ class Login extends CI_Controller {
 		if(null != $_POST){
 			$this->load->model('dataletter');
 			$post = array(
-				'nip' => $_POST['nip'],
-				'password' => md5($_POST['password'])
+				'nip' => escapeString($_POST['nip']),
+				'password' => md5(escapeString($_POST['password']))
 			);
 			$data = $this->dataletter->getlogin($post);
 			if($data != null){
