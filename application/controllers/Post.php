@@ -22,6 +22,7 @@ class Post extends CI_Controller {
 		// DIRECTORY
 		$target_dir = $_SERVER['SCRIPT_FILENAME'].'/../static/';
 		$target_file = $target_dir . date('Y-m-d__H-i-s').'__'.$_POST['melalui_surat'].'.'.$imageFileType;
+		$target_filex = $_SERVER['HTTP_HOST'] .'/ndaletter/static/'. date('Y-m-d__H-i-s').'__'.$_POST['melalui_surat'].'.'.$imageFileType;
 		// VALIDASI
 		$uploadOk = 1;
 		// CEK UKURAN
@@ -51,7 +52,7 @@ class Post extends CI_Controller {
 		$data = array(
 		        'nomor_surat' 	=> escapeString($_POST['nomor_surat']),
 		        'perihal' 		=> escapeString($_POST['perihal_surat']),
-		        'file' 			=> $target_file,
+		        'file' 			=> $target_filex,
 		        'dari' 			=> escapeString($_POST['dari_surat']),
 		        'melalui' 		=> escapeString($_POST['melalui_surat']),
 		        'ke' 			=> escapeString($_POST['ke_surat']),

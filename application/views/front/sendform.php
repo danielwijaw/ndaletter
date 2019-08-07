@@ -16,7 +16,7 @@
         <input type="hidden" name="inisurat" class="form-control" value="1">
         <label>Dari</label>
         <select class="form-control" name="dari_surat" id="dari_surat">
-          <option value="">Surat Ditujukan Kepada</option>
+          <option value="">Surat Dari</option>
           <?php foreach ($data as $key => $value) { ?>
           <option value="<?php echo $value['nip'] ?>"><?php echo $value['nama'].' || '.$value['jabatan'] ?></option>
           <?php } ?>

@@ -16,11 +16,7 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="<?php echo base_url('assets/') ?>/bower_components/jquery/dist/jquery.min.js"></script>
 <script src="<?php echo base_url('assets/') ?>/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url('assets/') ?>/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="<?php echo base_url('assets/') ?>/bower_components/fastclick/lib/fastclick.js"></script>
-<script src="<?php echo base_url('assets/') ?>/dist/js/adminlte.min.js"></script>
 <script>
     sayHi();
     function sayHi() {

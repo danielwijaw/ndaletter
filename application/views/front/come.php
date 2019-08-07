@@ -4,7 +4,8 @@
     </div>
     <div class="box-body">
         <button data-toggle="modal" onclick="loadmodalcome()" data-target="#modalsuratmasuk" type="button" class="btn btn-primary btn-sm">Data Surat Masuk</button>
-        <div class="table-responsive" id="surat_masuk">
+        <br/><br/>
+        <div class="table-responsive" id="surat_masuk_table">
         	
         </div>
     </div>
@@ -21,4 +22,9 @@
   {
     $.get("<?php echo base_url('/front/comeform') ?>", function(data){ $('#modalsuratmasukx').html(data); });
   }
+  function ajaxpaging(url)
+  {
+    $.get(url, function(data){ $('#surat_masuk_table').html(data); });
+  }
+  $.get("<?php echo base_url('/front/surat_masuk') ?>", function(data){ $('#surat_masuk_table').html(data); });
 </script>

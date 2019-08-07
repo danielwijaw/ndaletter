@@ -1,6 +1,6 @@
 
               <!-- Menu toggle button -->
-              <a onclick="notifikasi()" href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="fa fa-envelope-o"></i>
                 <span class="label label-success"><?php echo count($data) ?>+</span>
               </a>
@@ -11,14 +11,14 @@
                   <ul class="menu">
                     <?php foreach($data as $val){ ?>
                     <li><!-- start message -->
-                      <a href="javascript:void(0)">
+                      <a onclick="notifikasi()" target="_blank" href="http://<?php echo $val['file'] ?>">
                         <div class="pull-left">
                           <!-- User Image -->
                           <img src="<?php echo base_url('assets/') ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                         </div>
                         <!-- Message title and timestamp -->
                         <h4>
-                          Dari <?php echo $val['dari'] ?> Melalui<?php echo $val['melalui'] ?>
+                          Dari <?php echo $val['dari'] ?>
                           <?php 
                             $sekarang = time();
                             $validasi = strtotime($val['created_at']);

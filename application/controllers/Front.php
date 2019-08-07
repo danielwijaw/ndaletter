@@ -80,4 +80,68 @@ class Front extends CI_Controller {
 		$data = $this->dataletter->skipnotif();
 		echo "NOTIFIKASI CLEAR";
 	}
+
+	public function surat_masuk(){
+		$this->load->model('dataletter');
+		$total = $this->dataletter->getdatasuratcount('2');
+		$row = ceil($total / 5);
+		$button = "<ul class='pagination'>";
+		for ($x = 0; $x < $row; $x++) {
+			$xz = $x + 1;
+			$xxz = ($xz*5)-5;
+		    $button .= "<li><a onclick='ajaxpaging(`".base_url('/front/surat_masuk?page='.$xxz)."`)' href='javascript:void(0)'>$xz</a></li>";
+		} 
+		$button .= "</ul>";
+		if($total <= 5){
+			$button = '';
+		}else{
+			$button = $button;
+		}
+		$datapage = '';
+		if(isset($_GET['page']))
+		{
+			$datapage = $_GET['page'];
+		}
+		$data = $this->dataletter->getdatasurat('2',$datapage,'5');
+		$data = array('data' => $data,'button'=>$button);
+		$this->load->view('/front/suratmasuk', $data);
+	}
+
+	public function surat_keluar(){
+		$this->load->model('dataletter');
+		$total = $this->dataletter->getdatasuratcount('1');
+		$row = ceil($total / 5);
+		$button = "<ul class='pagination'>";
+		for ($x = 0; $x < $row; $x++) {
+			$xz = $x + 1;
+			$xxz = ($xz*5)-5;
+		    $button .= "<li><a onclick='ajaxpaging(`".base_url('/front/surat_masuk?page='.$xxz)."`)' href='javascript:void(0)'>$xz</a></li>";
+		} 
+		$button .= "</ul>";
+		if($total <= 5){
+			$button = '';
+		}else{
+			$button = $button;
+		}
+		$datapage = '';
+		if(isset($_GET['page']))
+		{
+			$datapage = $_GET['page'];
+		}
+		$data = $this->dataletter->getdatasurat('1',$datapage,'5');
+		$data = array('data' => $data,'button'=>$button);
+		$this->load->view('/front/suratkeluar', $data);
+	}
+
+	public function countsuratmasuk(){
+		$this->load->model('dataletter');
+		$total = $this->dataletter->getdatasuratcount('2');
+		echo "<p><i class='fa fa-envelope-o'></i> Total Surat Masuk ".$total."</p>";
+	}
+
+	public function countsuratkeluar(){
+		$this->load->model('dataletter');
+		$total = $this->dataletter->getdatasuratcount('1');
+		echo "<p><i class='fa fa-envelope-open-o'></i> Total Surat Keluar ".$total."</p>";
+	}
 }

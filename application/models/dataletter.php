@@ -25,4 +25,27 @@ class dataletter extends CI_Model {
         return $data->result_array();
     }
 
+    public function getdatasurat($validasi, $rowno, $rowperpage)
+    {
+        $this->db->select('a.*, b.nama as nama_dari, c.nama as nama_ke');
+        $this->db->from('tb_history as a');
+        $this->db->join('tm_user b', 'a.dari = b.nip', 'left');
+        $this->db->join('tm_user c', 'a.ke = c.nip', 'left');
+        $this->db->where('validasi =', $validasi);
+        $this->db->limit($rowperpage, $rowno);  
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+    public function getdatasuratcount($validasi) {
+
+        $this->db->select('count(*) as allcount');
+        $this->db->from('tb_history');
+        $this->db->where('validasi =', $validasi);
+        $query = $this->db->get();
+        $result = $query->result_array();
+     
+        return $result[0]['allcount'];
+    }
+
 }

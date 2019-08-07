@@ -4,6 +4,7 @@
     </div>
     <div class="box-body">
         <button data-toggle="modal" onclick="loadmodalsend()" data-target="#modalsuratkeluar" type="button" class="btn btn-primary btn-sm">Data Surat Keluar</button>
+        <br/><br/>
         <div class="table-responsive" id="surat_masuk">
         	
         </div>
@@ -21,4 +22,9 @@
   {
     $.get("<?php echo base_url('/front/sendform') ?>", function(data){ $('#modalsuratkeluarx').html(data); });
   }
+  function ajaxpaging(url)
+  {
+    $.get(url, function(data){ $('#surat_masuk').html(data); });
+  }
+  $.get("<?php echo base_url('/front/surat_keluar') ?>", function(data){ $('#surat_masuk').html(data); });
 </script>
